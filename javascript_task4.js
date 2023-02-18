@@ -32,41 +32,43 @@ function TableLamp(name, power, color){
   this.name = name;
   this.color = color;
   this.brightness = 1;
-  this.power = power
+  this.power = power;
+
+  // Метод, меняющий яркость лампы (по кругу: слабо-1 - сильно-2)
+  this.changeBrightness = function(){
+    if (this.brightness == 1) {
+      this.brightness = 2;
+      console.log(this.name + " shines brightly.");
+    } else {
+      this.brightness = 1;
+      console.log(this.name + " shines dimly.");
+    }
+  } 
 }
 
 TableLamp.prototype = new ElektroDevice()
-
-// Метод, меняющий яркость лампы (по кругу: слабо-1 - сильно-2)
-TableLamp.prototype.changeBrightness = function(){
-  if (this.brightness == 1) {
-    this.brightness = 2;
-    console.log(this.name + " shines brightly.");
-  } else {
-    this.brightness = 1;
-    console.log(this.name + " shines dimly.");
-  }
-}
 
 // Электроприбор 2. Компьютер
 function Computer(name, power, type){
   this.name = name;
   this.type = type;
-  this.power = power
+  this.power = power;
+
+  // Метод, перезагружающий компьютер
+  this.reload = function(){
+    console.log(this.name + " will be reload.");
+    this.deviceOff();
+    this.deviceOn()
+  }
+
+  // Метод, запускающий программу на компьютере
+  this.runProg = function(prog){
+    console.log(prog + " program launched on " + this.name);
+  }
 }
 
 Computer.prototype = new ElektroDevice()
-// Метод, перезагружающий компьютер
-Computer.prototype.reload = function(){
-  console.log(this.name + " will be reload.");
-  this.deviceOff();
-  this.deviceOn()
-}
 
-// Метод, запускающий программу на компьютере
-Computer.prototype.runProg = function(prog){
-  console.log(prog + " program launched on " + this.name);
-}
 
 // Создадим экземпляры
 // Экземпляр лампы
