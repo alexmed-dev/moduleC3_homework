@@ -39,16 +39,13 @@ TableLamp.prototype = new ElektroDevice()
 
 // Метод, меняющий яркость лампы (по кругу: слабо-1 - сильно-2)
 TableLamp.prototype.changeBrightness = function(){
-  this.brightness == 1 ?  this.brightness = 2 : this.brightness = 1
-  console.log(this.name + " shines " + (this.brightness == 1 ? "brightly." : "dimly."));
-
-  // if (this.brightness == 1) {
-  //   this.brightness = 2;
-  //   console.log(this.name + " shines brightly.");
-  // } else {
-  //   this.brightness = 1;
-  //   console.log(this.name + " shines dimly.");
-  // }
+  if (this.brightness == 1) {
+    this.brightness = 2;
+    console.log(this.name + " shines brightly.");
+  } else {
+    this.brightness = 1;
+    console.log(this.name + " shines dimly.");
+  }
 }
 
 // Электроприбор 2. Компьютер
